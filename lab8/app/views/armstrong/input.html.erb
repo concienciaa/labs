@@ -1,0 +1,10 @@
+<%= form_tag url_for(controller: 'armstrong', action: 'output'), method:'get' do %>
+
+	<%= label_tag :text, 'Введите количество цифр в числах Армстронга:' %>
+	<br>
+	<%= text_field_tag :input_string, nil, size: 40,
+	placeholder: 'Enter number here' %>
+	
+	<%= submit_tag 'Go!' %>
+	
+<% end %>

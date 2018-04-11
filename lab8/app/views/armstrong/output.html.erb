@@ -1,0 +1,22 @@
+<p>	Количество чисел армстронга с <%= params[:input_string].to_s.split(' ').first %>
+цифрами равно <%= @size %>. </p>
+
+<% if @size > 0 then %>
+	<table border=1px width=400px>
+		<tr>
+			<td> Номер числа </td>
+			<td> Число армстронга </td>
+		</tr>
+		<% @result.each_with_index do |i, m|  %>
+		<tr>
+			<td> <%= m + 1 %> </td>
+			<td> <%= i %> </td>
+		</tr>
+		<% end %>
+	</table>
+<% else %>
+	<div> <%= @result %> </div>
+<% end %>
+</p>
+
+<%= link_to "Repeat input", :armstrong_input %>
