@@ -1,0 +1,12 @@
+<h3> Лабораторная работа 12: Числа Армстронга</h3>
+
+<%= form_tag('/calculator/output', :method => 'get') do %>
+
+    <div class="form-row">
+    <h3><%=text_field_tag(:param, nil, placeholder: 'Введите число', class: 'form-control col', type: 'text') %> </h3>
+    </div>
+    <h3><%=submit_tag('Вычислить', class: 'btn btn-primary')%> </h3>
+
+<%end%>
+
+<%= link_to 'Выйти', '/session/destroy' %>

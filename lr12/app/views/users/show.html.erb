@@ -1,0 +1,9 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Логин:</strong>
+  <%= @user.login %>
+</p>
+
+<%= link_to 'Изменить', edit_user_path(@user) %> |
+<%= link_to 'Назад', session_create_path %>

@@ -1,0 +1,29 @@
+<h1> Авторизация </h1>
+<% if @error %>
+    <p style='color: red; font-size: 12px;'>
+      <%= @error %>
+	</p>
+<% end %>
+<%= @bad %>
+<%= @p %>
+<%= form_tag url_for(controller: :session, action: :login), method: 'post' do %>
+<div class="form-group">
+    <%= label_tag 'Логин' %>
+    <%= text_field_tag(:login, nil, placeholder: 'Введите логин', class: 'form-control', type: 'text') %>
+    <small id="loginHelp" class="form-text text-muted">Мы никогда не будем делиться вашим логином с кем-либо еще.</small>
+</div>
+
+<div class="form-group">
+    <%= label_tag 'Пароль'  %>
+    <%= password_field_tag 'password' %><br />
+</div>
+
+<%= submit_tag 'Войти', class: 'btn btn-outline-primary' %><br />
+
+<br>
+
+<div class='btn btn-outline-primary'>
+  <%= link_to 'Зарегестрироваться', new_user_path %>
+</div>
+
+<% end %>

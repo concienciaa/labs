@@ -1,0 +1,33 @@
+<%= form_with(model: user, local: true) do |form| %>
+  <% if user.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+	    <% if user.errors.count == 1 %> 
+		  1 ошибка получена во время сохранения:
+		<% else %>
+		  2 ошибки получены во время сохранения:
+		<% end %>
+	  </h2>
+
+      <ul>
+      <% user.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label 'Логин' %>
+    <%= form.text_field :login, id: :user_login %>
+  </div>
+
+  <div class="field">
+    <%= form.label 'Пароль' %>
+    <%= form.password_field :password, id: :user_password %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit 'Зарегестрироваться' %>
+  </div>
+<% end %>
