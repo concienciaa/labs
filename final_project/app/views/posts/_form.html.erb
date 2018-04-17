@@ -1,0 +1,50 @@
+<%= form_with(model: post, local: true, html: {multipart: true}) do |form| %>
+  <% if post.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
+
+      <ul>
+      <% post.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :title %>
+    <%= form.text_field :title, id: :post_title, class: 'form-control'%>
+  </div> <br>
+
+  <div class="field">
+    <%= form.label :body %>
+    <%= form.text_area :body, id: :post_body, class: 'form-control', cols: "30", rows: "10"%>
+  </div> <br>
+
+  <div class="field">
+    <%= form.file_field :image%>
+  </div> <br>
+
+  <div class="actions">
+    <%= form.submit 'Save', class:'btn btn-success'%>
+    <%= link_to 'Cancel', posts_path , class: 'btn btn-danger'%>
+  </div>
+<% end %>
+
+<style>
+    .create {
+      color: green;
+    }
+
+    .create:hover {
+      color: #009f00;
+    }
+
+    .cancel {
+      color: #803535;
+    }
+
+    .cancel:hover {
+      color: #bb4d4d;
+    }
+</style>

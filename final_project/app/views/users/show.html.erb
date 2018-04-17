@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="pull-right">
+    <h2><%=@user.name.upcase%> <%=@user.surname.upcase%></h2>
+    <% if current_user.id == @user.id%>
+    <div>
+        <%= link_to 'Edit Profile', edit_user_path(@user) %>
+    </div>
+    <%end%>
+    <%= image_tag @user.avatar.url(:large), class: 'img-thumbnail thumb' if @user.avatar? %>
+  </div>
+  <div class="pull-left">
+    <label>
+      <h2>ALL POSTS</h2>
+    </label>
+    <% @posts.each do |post| %>
+      <div class="list-group">
+        <a href="<%=post_path(post)%>"><%= post.title %></a>
+      </div>
+    <% end %>
+  </div>
+
+</div>

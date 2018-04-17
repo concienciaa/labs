@@ -1,0 +1,40 @@
+<h1 style="text-align: center">People</h1>
+
+<div class="container">
+  <%@users.each do |user|%>
+    <div class="container">
+      <ul class="list-group">
+        <a class="list-group-item" href="<%=user_path(user) %>">
+          <div class="pull-left">
+            <%= image_tag user.avatar.url(:thumb), class: 'img-thumbnail circle' if user.avatar? %>
+          </div>
+
+          <div class="name">
+            <h3 class="name"><%= user.name %> <%= user.surname %></h3>
+          </div>
+        </a>
+      </ul>
+    </div>
+  <% end %>
+</div>
+
+
+
+
+
+<style>
+    .circle {
+      border-radius: 50%;
+    }
+
+    .name {
+      margin-left:
+      6%;
+    }
+
+    .container {
+      margin-bottom: 10px;
+      padding: auto;
+    }
+
+</style>

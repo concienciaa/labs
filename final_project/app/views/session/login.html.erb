@@ -1,0 +1,20 @@
+<br><%= render 'partials/flash' %><br>
+<h1 style="text-align: center">Login</h1>
+<div class="container" style="max-width: 50%">
+  <div class="form-group">
+    <%= form_tag url_for(controller: :session, action: :create), method: 'post', :class => '.form-horizontal' do %>
+
+      <div class="field">
+        <%= label_tag 'email'%>
+        <%= text_field_tag :email, nil, class: "form-control" %>
+      </div> <br>
+
+      <div class="field">
+        <%= label_tag 'password' %>
+        <%= password_field_tag 'password', nil, class: 'form-control' %>
+      </div> <br>
+
+        <%= submit_tag 'Sign in', class: ' btn btn-primary'%>
+    <% end %>
+  </div>
+</div>

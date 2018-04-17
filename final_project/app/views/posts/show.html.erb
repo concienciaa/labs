@@ -1,0 +1,54 @@
+<div class="container">
+    <div>
+        <%= link_to 'Back', posts_path, class: 'btn btn-primary'%>
+        <h2>
+            <%= @post.title %>
+        </h2>
+    </div>
+    <div class="pull-left font-body">
+        <%= @post.body%>
+    </div>
+    <div class="pull-left">
+        <%= image_tag @post.image.url(:large) if @post.image? %>
+    </div>
+</div>
+
+<div class="container pull-left actions">
+    <% if current_user.id == @post.user.id%>
+        <%= link_to 'Edit', edit_post_path(@post), class: 'btn btn-warning'%>
+        <%= button_to 'Delete', @post, method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-danger'%>
+    <%end%>
+</div>
+
+<style>
+    .font-body {
+        font-size: 20px;
+        max-width: 45%;
+    }
+
+    .buttons {
+        margin-top: 10px;
+    }
+
+    .rm {
+        color: #810000;
+        margin-top: 1%;
+    }
+
+    .edit {
+        color: #104d89;
+    }
+
+    .rm:hover {
+        color: #b90000;
+        margin-top: 1%;
+    }
+
+    .edit:hover {
+        color: #1978d5;
+    }
+
+    .pull-left {
+        display: block;
+    }
+</style>

@@ -1,0 +1,22 @@
+<style>
+.avatarOnPost{
+  border-radius: 50%;
+}
+</style>
+
+<% @posts.reverse_each do |post| %>
+  <div class="list-group">
+    <%= link_to post, class: 'list-group-item' do %>
+      <figure class="imgWrap">
+        <%= image_tag post.user.avatar.url(:thumb), class: :avatarOnPost if post.user %>
+        <figcaption><%= post.user.nickname %></figcaption>
+      </figure>
+      <div class="txtWrap">
+        <h2 class="list-group-item-heading"><%= post.title %></h2>
+        <h5><%= post.created_at %></h5>
+      </div>
+      <hr>
+      <%= post.body[0..500] %>
+    <% end %>
+  </div>
+<% end %>

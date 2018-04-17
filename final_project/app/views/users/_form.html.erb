@@ -1,0 +1,59 @@
+<div class="container">
+<%= form_with(model: user, local: true) do |form| %>
+  <% if user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
+      <ul>
+        <% user.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :surname, 'Your surname' %>
+    <%= form.text_field :surname, id: :user_surname, class: 'form-control'%>
+  </div> <br>
+
+  <div class="field">
+    <%= form.label :name, 'Your name' %>
+    <%= form.text_field :name, id: :user_name, class: 'form-control' %>
+  </div> <br>
+
+  <div class="field">
+    <%= form.label :nickname, 'Your nickname' %>
+    <%= form.text_field :nickname, id: :user_nickname, class: 'form-control' %>
+  </div> <br>
+
+  <div class="field">
+    <%= form.label :email %>
+    <%= form.text_field :email, id: :user_email, class: 'form-control' %>
+  </div> <br>
+
+  <div class="field">
+    <%= form.label :password %>
+    <%= form.password_field :password, id: :user_password, class: 'form-control' %>
+  </div> <br>
+
+  <div class="field">
+    <%= form.label :password_confirmation %>
+    <%= form.password_field :password_confirmation, id: :user_password_confirmation, class: 'form-control' %>
+  </div> <br>
+
+
+  <div class="field">
+    <%= form.file_field :avatar%>
+  </div> <br>
+
+  <div class="actions">
+    <%= form.submit :'Create', class:'btn btn-primary'%>
+  </div>
+<% end %>
+</div>
+
+<style>
+    .container {
+      max-width: 50%;
+    }
+</style>
